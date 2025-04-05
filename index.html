@@ -6,6 +6,14 @@
   <title>ООО "РГ-СТРОЙ ГРУПП" — Вакансии</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2933/2933811.png" type="image/png">
+  <style>
+    .carousel-item {
+      display: none;
+    }
+    .carousel-item.active {
+      display: block;
+    }
+  </style>
 </head>
 <body class="bg-[url('https://images.unsplash.com/photo-1581092160614-b9de03c28a5b?auto=format&fit=crop&w=1950&q=80')] bg-cover bg-fixed bg-center text-gray-800">
 
@@ -16,6 +24,31 @@
   <div class="bg-black/60 h-64 flex items-center justify-center">
     <h1 class="text-5xl text-white font-extrabold px-6 py-2 rounded-xl shadow-lg">Вакансии</h1>
   </div>
+
+  <!-- Слайдер -->
+  <div class="max-w-4xl mx-auto mt-8">
+    <div class="relative w-full h-72 rounded-xl overflow-hidden shadow-lg">
+      <div class="carousel-item active absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1581091870622-0ef8f248c3c7?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover" alt="строительство 1">
+      </div>
+      <div class="carousel-item absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover" alt="строительство 2">
+      </div>
+      <div class="carousel-item absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1581092795360-7b1f29169f0d?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover" alt="строительство 3">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let index = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    setInterval(() => {
+      items[index].classList.remove('active');
+      index = (index + 1) % items.length;
+      items[index].classList.add('active');
+    }, 4000);
+  </script>
 
   <div class="max-w-4xl mx-auto p-6 space-y-10">
     <!-- Вакансия 1 -->
